@@ -1,0 +1,10 @@
+This script is for what?
+-> this script will fetch Top 5 Highest CPU and MEM wise usages and print the output in file.
+   and file will be available at /var/log/utilization/ directory with name like "report-02Dec2019"  as like today is 02-December-2019. so find 
+   accordingly and if you are running this script on you local system then dont forget to create /var/log/utilization/ directory with proper 
+   permission.
+
+How to execute prcesscheck.sh on Local For testing
+-> you can execute by firing below command on terminal
+	" sh processcheck.sh"
+

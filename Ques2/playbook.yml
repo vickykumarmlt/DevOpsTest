@@ -1,0 +1,49 @@
+- name: "This is Question 2 Playbook"
+  hosts: home1
+  tasks:
+       - name: "Creating a monitor user"
+         become: yes
+         user: 
+                name='monitor' 
+                state=present
+                password="$6$M264Qsl1Du0$gsMDvSIgBVQAl5QcGiNW1rTctATXYk2l1Ki0VHhwkiNWAL9cbu3ocGaFiz9V4gqYmRDmDEy2rMkhlfPXeE7wy0"
+                shell="/bin/bash"
+
+
+       - name: " Creating a /opt/script/ directory on remote server"
+         become: yes
+         file: 
+                path: /opt/script/
+                state: directory
+                owner: monitor
+                group: monitor
+                mode: '0755'
+
+       - name: " Creating a /var/log/utilization/ directory on remote server"
+         become: yes
+         file:
+                path: /var/log/utilization/
+                state: directory
+                owner: monitor
+                group: monitor
+                mode: '0755'
+
+       - name: "Transferring file processcheck.sh file"
+         become: yes
+         copy:
+                 src: /home/vikramkumar/Desktop/DevOps/processcheck.sh
+                 dest: /opt/script/processcheck.sh
+                 owner: monitor
+                 group: monitor
+                 mode: '0755'
+
+       - name: "Setting Up the cron with a schedule of Mon to Fri every 2 min."
+         become: yes
+         cron:
+                 user: monitor
+                 minute: "*/2"
+                 hour: "*"
+                 weekday: "1-5"
+                 job: "/opt/script/processcheck.sh"
+
+

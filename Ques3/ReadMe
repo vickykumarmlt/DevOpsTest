@@ -1,0 +1,40 @@
+For what this file is?
+-> Containerize a setup with Docker-compose.yaml of wordpress service with mysql as a Database.
+   
+Requirements before executing docker-compose.yml file
+ 	1. app_data directory should be there as we binding this directory in wordpress container.
+	   binding path in container is "/var/www/html".
+
+How to check path is binded or not?
+	* fire the command : docker container inspect <container-id>
+	  you will Under "HostConfig"
+	
+    Like This:- "HostConfig": {
+        	    	    "Binds": [
+                	"/home/vikramkumar/Desktop/DevOps/Ques3/app_data:/var/www/html:rw"
+            	],
+
+Required Username/password and port of Mysql:
+      - MYSQL_PORT=3306
+      - MYSQL_DATABASE=wordpress
+      - MYSQL_USER=root
+      - MYSQL_ROOT_PASSWORD=abc@123
+
+On which port wordpress application will be accessible?
+-> Wordpress application will be accssible on "localhost:8081". Enter localhost:8081 on Chrome browser.
+
+How to Run.
+	1. Goto Ques3 Directory and run command "docker-compose up -d"
+		This will create/run docker container with the detaisl mentioned in docker-compose.yml file.
+	2. Goto Chrome Browser and hit locahost:8081
+		This will open wordpress application in chrome browser for installtion.
+	3. Wordpress Setup Will ask you for entering some detials please Enter the following.
+		Database Name: wordpress
+		Username: root
+		Password: abc@123
+		Database Host: 172.21.0.2:3306 (172.21.0.2 this is mysql container IPAddress please enter yours)
+			       You can get you by firing "command docker container inspect f3de1d3679c7 |tail -20" and will get IPAddress field.
+		Table_Prefix: wp_
+	4. Then Submit and Run the installation.
+
+

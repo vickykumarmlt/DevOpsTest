@@ -1,0 +1,11 @@
+What is this file for?
+-> This is ansible-playbook will do following task on remote machines(only on machines available in inventory file)
+	1. Create user with Username:"monitor" and password: "monitor"
+	2. Will Create /opt/script directory for transferring shell script file to remote machins. with owner,group=monitor and permission will be 
+	   0755
+	3. Will Create /var/log/utilization directory with same permission as Step 2.
+	4. Transferring processcheck.sh file from local to remote machine on path /opt/script.
+	5. Will Setup cron job on every 2Minute from Monday to Friday.
+
+How to Run playbook
+-> That you should know.	
