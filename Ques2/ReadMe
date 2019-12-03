@@ -8,4 +8,5 @@ What is this file for?
 	5. Will Setup cron job on every 2Minute from Monday to Friday.
 
 How to Run playbook
--> That you should know.	
+-> ansible-playbook playbook.yml -i inventory.txt
+

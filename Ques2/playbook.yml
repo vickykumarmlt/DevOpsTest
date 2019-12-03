@@ -31,7 +31,7 @@
        - name: "Transferring file processcheck.sh file"
          become: yes
          copy:
-                 src: /home/vikramkumar/Desktop/DevOps/processcheck.sh
+                 src: /home/vikramkumar/Desktop/DevOps/Ques1/processcheck.sh
                  dest: /opt/script/processcheck.sh
                  owner: monitor
                  group: monitor
@@ -40,10 +40,10 @@
        - name: "Setting Up the cron with a schedule of Mon to Fri every 2 min."
          become: yes
          cron:
+                 name: Cron job
                  user: monitor
                  minute: "*/2"
                  hour: "*"
                  weekday: "1-5"
                  job: "/opt/script/processcheck.sh"
-
-
+                 state: present
