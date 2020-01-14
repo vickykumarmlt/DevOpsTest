@@ -4,8 +4,6 @@ services:
     image: "mysql:5.7"
     restart: always
     container_name: mysqldb
-    hostname: itstech
-    domainname: itstech.net
     volumes:
       - sql_data:/var/lib/mysql
     environment:
