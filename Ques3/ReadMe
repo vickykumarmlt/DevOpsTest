@@ -32,7 +32,7 @@ How to Run.
 		Database Name: wordpress
 		Username: root
 		Password: abc@123
-		Database Host: 172.21.0.2:3306 (172.21.0.2 this is mysql container IPAddress please enter yours)
+		Database Host: 172.21.0.2:3306 (172.21.0.2 this is mysql container IPAddress please enter yours db server)
 			       You can get you by firing "command docker container inspect f3de1d3679c7 |tail -20" and will get IPAddress field.
 		Table_Prefix: wp_
 	4. Then Submit and Run the installation.
