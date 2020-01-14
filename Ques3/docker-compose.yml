@@ -3,6 +3,9 @@ services:
   db:
     image: "mysql:5.7"
     restart: always
+    container_name: mysqldb
+    hostname: itstech
+    domainname: itstech.net
     volumes:
       - sql_data:/var/lib/mysql
     environment:
@@ -17,6 +20,7 @@ services:
       - db
     image: "wordpress"
     restart: always
+    container_name: wordpress
     volumes:
       - ./app_data:/var/www/html
     environment:
